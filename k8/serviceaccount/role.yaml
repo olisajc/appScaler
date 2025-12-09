@@ -1,0 +1,12 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: policy-scaler-role
+  namespace: workspace
+rules:
+- apiGroups: ["extensions.example.com"]
+  resources: ["policyscalers"]
+  verbs: ["get", "list", "watch", "create", "update", "delete"]
+# - apiGroups: ["extensions.example.com"]
+#   resources: ["policyscalers/status"]
+#   verbs: ["get", "update", "patch"]

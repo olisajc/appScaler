@@ -1,0 +1,43 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch appScaler",
+            "type": "go",
+            "request": "launch",
+            "mode": "debug",
+            "program": "${workspaceFolder}/cmd/appScaler",
+            "env": {},
+            "args": ["--development"],
+            "showLog": true,
+            "trace": "verbose"
+        },
+        // {
+        //     "name": "Launch appScaler (development)",
+        //     "type": "go",
+        //     "request": "launch",
+        //     "mode": "debug",
+        //     "program": "${workspaceFolder}/cmd/appScaler",
+        //     "env": {},
+        //     "args": ["--development"],
+        //     "showLog": true
+        // },
+        {
+            "name": "Attach to Running Process",
+            "type": "go",
+            "request": "attach",
+            "mode": "local",
+            "processId": "${command:pickGoProcess}"
+        },
+        {
+            "name": "Debug Test",
+            "type": "go",
+            "request": "launch",
+            "mode": "test",
+            "program": "${workspaceFolder}/pkg/kubeclient",
+            "args": [
+                "-test.v"
+            ]
+        }
+    ]
+}

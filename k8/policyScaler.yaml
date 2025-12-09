@@ -1,0 +1,10 @@
+apiVersion: extensions.example.com/v1
+kind: PolicyScaler
+metadata:
+  name: sample-scaler
+  namespace: workspace
+spec:
+  policies:
+    time:
+      - name: "morning-scale"
+        schedule: "0 9 * * MON-FRI"
