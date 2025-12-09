@@ -1,0 +1,4 @@
+package appscaler
+
+func main() {
+}
