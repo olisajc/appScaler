@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: policy-scaler-rolebinding
+  namespace: workspace
+subjects:
+- kind: ServiceAccount
+  name: policy-scaler-sa
+  namespace: workspace
+roleRef:
+  kind: Role
+  name: policy-scaler-role
+  apiGroup: rbac.authorization.k8s.io
