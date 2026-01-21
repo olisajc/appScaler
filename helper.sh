@@ -23,3 +23,7 @@ kubectl apply -f k8/policyScaler.yaml -n workspace
 
 # =================================
 kubectl create clusterrolebinding policyscaler-controller --clusterrole=cluster-admin  --serviceaccount=workspace:policy-scaler
+
+
+# ==================================
+kubectl run test-pod --image=debian:latest --command -- sleep infinity

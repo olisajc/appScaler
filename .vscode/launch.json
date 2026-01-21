@@ -23,21 +23,40 @@
         //     "showLog": true
         // },
         {
-            "name": "Attach to Running Process",
-            "type": "go",
-            "request": "attach",
-            "mode": "local",
-            "processId": "${command:pickGoProcess}"
-        },
-        {
             "name": "Debug Test",
             "type": "go",
             "request": "launch",
             "mode": "test",
-            "program": "${workspaceFolder}/pkg/kubeclient",
+            "program": "${workspaceFolder}",
             "args": [
-                "-test.v"
+                "-v"  // Optional: verbose output
             ]
+        },
+        {
+            "name": "Debug Current Test",
+            "type": "go",
+            "request": "launch",
+            "mode": "test",
+            "program": "${workspaceFolder}",
+            "args": [
+                "-run",
+                "${selectedText}"  // Runs specific test matching pattern
+            ]
+        },
+        {
+            "name": "Debug Test File",
+            "type": "go",
+            "request": "launch",
+            "mode": "test",
+            "program": "${fileDirname}"
+        },
+        {
+            "name": "Debug Specific Test",
+            "type": "go",
+            "request": "launch",
+            "mode": "test",
+            "program": "${fileDirname}",
+            "args": ["-test.run", "TestMyFunction"]
         }
     ]
 }

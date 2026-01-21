@@ -16,6 +16,7 @@ import (
 var (
 	ConfigPath               = filepath.Join(homedir.HomeDir(), ".kube", "config")
 	ErrMultipleConfigSources = fmt.Errorf("multiple kubeconfig sources specified")
+	ErrNilClient             = fmt.Errorf("kube client is nil")
 	k8ClientOnce             sync.Once
 	k8Client                 *KubeClient
 )
@@ -132,14 +133,21 @@ func newClusterKubeClient() (*KubeClient, error) {
 		return nil, err
 	}
 
-	client := kubeOptions.DefaultClient
-	dyn := kubeOptions.DynamicClient
-
 	kubecli := &KubeClient{
-		client: client,
-		dynCli: dyn,
+		client: kubeOptions.DefaultClient,
+		dynCli: kubeOptions.DynamicClient,
 	}
 
 	return kubecli, nil
 
+}
+
+func FakeKubeClient(fakeDynamicClient dynamic.Interface) *KubeClient {
+	return &KubeClient{
+		dynCli: fakeDynamicClient,
+	}
+}
+
+func (k *KubeClient) DynamicClient() dynamic.Interface {
+	return k.dynCli
 }
