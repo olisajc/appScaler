@@ -61,8 +61,33 @@ spec:
                       required:
                       - name
                       - schedule
-              required:
-              - policies
+                  override:
+                    type: object
+                    properties:
+                      replicas:
+                        type: integer
+                        description: "Number of replicas to scale to"
+                      cpu:
+                        type: object
+                        properties:
+                          request:
+                            type: string
+                          limit:
+                            type: string
+                      memory:
+                        type: object
+                        properties:
+                          request:
+                            type: string
+                          limit:
+                            type: string
+                      storage:
+                        type: object
+                        properties:
+                          request:
+                            type: string
+            required:
+            - policies
 
 
 

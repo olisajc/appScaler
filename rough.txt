@@ -1,0 +1,34 @@
+
+policy - user scales vertically or horizontally as soon as possible.
+
+
+datamodel:
+    - resourceTargets
+    - overridePolicy - desired resource state
+
+policy (rule)- 
+    when an appscaler is created , the scaleresource needs to be changed.
+
+mechanisms-
+    controller needs to watch for appscaler events 
+    
+
+
+
+
+how to scale
+
+input - app scaler event in cluster 
+datamodel -  controller
+policy - 
+    if an event happens , we need to cache the appscaler
+    if an appscaler is cached we need to relist and carry out business logic.
+mechanisms - 
+    - events are listened for by informer
+    - indexers is used to store and retrieve data from watch queuue
+    - queue stores the crds , to be processed 
+
+
+
+
+

@@ -8,3 +8,12 @@ spec:
     time:
       - name: "morning-scale"
         schedule: "0 9 * * MON-FRI"
+    override:
+      cpu:
+        request: "500m"
+        limit: "1"
+      memory:
+        request: "512Mi"
+        limit: "1Gi"
+      storage:
+        request: "5Gi"

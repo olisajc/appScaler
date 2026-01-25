@@ -5,6 +5,7 @@ import (
 	"path/filepath"
 
 	"github.com/olisajc/appScaler/pkg/cli/policyscaler"
+	"github.com/olisajc/appScaler/pkg/cli/watch"
 	kc "github.com/olisajc/appScaler/pkg/kubeclient"
 	"github.com/spf13/cobra"
 	"k8s.io/client-go/util/homedir"
@@ -29,6 +30,7 @@ func Root() *cobra.Command {
 		},
 	}
 	cmd.AddCommand(policyscaler.PolicyScalerCmd())
+	cmd.AddCommand(watch.WatchCmd())
 	cmd.PersistentFlags().BoolVar(&options.Development, "development", false, "Use development kubeconfig")
 	cmd.PersistentFlags().BoolVar(&options.Cluster, "cluster", false, "Use in-cluster kubeconfig")
 	cmd.Flags().String("kubeconfig", ConfigPath, "absolute path to the kubeconfig file")

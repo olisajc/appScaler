@@ -1,8 +1,19 @@
+Input / output : appscaler scale deployments vertically or horizontally.
+
+data models:
+    appscaler Crd - the appscaler users specify scaling requeirements
+    *Deployments and scale resource- contain scaling resource that will be changed by the crd operator
+    policies - that define what to set resources to
+
+What may change :
+    more polices to scale on . metrics event etc.
+
+policies:
+    
+    
 
 
-Controllers 
 
-controllers watch and listen to events from the api server for changes to the resources , they manage . they ensure that the state of resources are at the desired state.
 
 
 

@@ -1,7 +1,5 @@
 IDEA : horizontally scales deployments based on business metrics and needs.
 
-
-
 Scaling Rule Types
 
 Time-Based Scaling:
@@ -24,6 +22,13 @@ Event-Based Scaling:
 
 Choose your operator pattern
 Kubernetes-native automation (CRDs + controllers)
+
+
+
+
+
+
+
 
 
 
